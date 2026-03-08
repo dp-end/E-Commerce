@@ -1,0 +1,35 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h3>🤖 AI Asistan</h3>
+  </div>
+
+  <div class="chat-messages">
+    @for (msg of messages(); track $index) {
+      <div class="message-wrapper" [ngClass]="{'user': msg.sender === 'user', 'ai': msg.sender === 'ai'}">
+        <div class="bubble">
+          {{ msg.text }}
+        </div>
+      </div>
+    }
+
+    @if (isLoading()) {
+      <div class="message-wrapper ai">
+        <div class="bubble loading">Yazıyor...</div>
+      </div>
+    }
+  </div>
+
+  <div class="input-area">
+    <input
+      type="text"
+      [ngModel]="userInput()"
+      (ngModelChange)="userInput.set($event)"
+      (keyup.enter)="onSendMessage()"
+      placeholder="Ürünlerimiz hakkında bir şey sorun..."
+      [disabled]="isLoading()"
+    />
+    <button (click)="onSendMessage()" [disabled]="isLoading() || !userInput().trim()">
+      Gönder
+    </button>
+  </div>
+</div>

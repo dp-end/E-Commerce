@@ -1,0 +1,117 @@
+.main-content {
+  padding: 2rem 0;
+}
+
+fieldset {
+  border: 2px solid #17a2b8;          /* primary renkli sınır */
+  padding: 1.5rem;
+  border-radius: 6px;
+  background: #f1fafd;                /* hafif mavi arka plan */
+  position: relative;
+}
+
+legend {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #17a2b8;
+  width: auto;
+  padding: 0 0.75rem;
+  background: #f1fafd;
+}
+
+label {
+  font-weight: 500;
+  color: #343a40;
+}
+
+.form-control {
+  transition: border-color .2s, box-shadow .2s;
+  border-radius: 4px;
+}
+
+.form-control::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control:focus {
+  border-color: #28a745;                      /* success renk */
+  box-shadow: 0 0 0 .2rem rgba(40,167,69,.25);
+}
+
+.form-control.ng-invalid.ng-touched {
+  border-color: #dc3545;
+}
+
+.form-check {
+  padding-left: 1.25rem;
+}
+
+.form-check-input {
+  margin-top: .25rem;
+}
+
+.order-summary {
+  background: #ffffff;
+  border: 2px solid #17a2b8;
+  border-radius: 6px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+
+.order-summary h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #17a2b8;
+}
+
+.order-summary .d-flex {
+  margin-bottom: .5rem;
+}
+
+.order-summary .d-flex span:last-child {
+  min-width: 5rem;
+  text-align: right;
+  color: #343a40;
+}
+
+.order-summary hr {
+  margin: 1rem 0;
+  border-color: #dee2e6;
+}
+
+.order-summary .font-weight-bold span:last-child {
+  font-size: 1.1rem;
+  color: #28a745;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background: #28a745;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: .75rem;
+  border-radius: 4px;
+  transition: background .2s;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background: #218838;
+}
+
+button[type="submit"]:active {
+  background: #1e7e34;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+@media (max-width: 767px) {
+  .order-summary {
+    margin-top: 2rem;
+  }
+}

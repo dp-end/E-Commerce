@@ -1,0 +1,35 @@
+<div class="catalog-container">
+  <div class="header">
+    <h2>Products Catalog 📦</h2>
+    <p>Manage your inventory or start shopping</p>
+  </div>
+
+  <div class="product-grid">
+    @for (product of products(); track product.id) {
+      <div class="product-card">
+        <div class="product-icon">
+          👕
+        </div>
+        <div class="product-info">
+          <h3>{{ product.name }}</h3>
+          <p class="price">{{ product.unit_price | currency:'USD' }}</p>
+        </div>
+
+        <div class="button-group">
+          <button class="detail-btn" [routerLink]="['/product', product.id]">
+            🔍 Detaylar
+          </button>
+
+          <button class="action-btn" (click)="addToCart(product)">
+            + Add to Cart
+          </button>
+        </div>
+
+      </div>
+    } @empty {
+      <div class="empty-state">
+        <p>No products found in the catalog.</p>
+      </div>
+    }
+  </div>
+</div>

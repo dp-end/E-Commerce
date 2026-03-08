@@ -1,0 +1,125 @@
+/* Ana Arka Plan ve Yumuşak Font */
+.cart-page {
+    padding-top: 5rem; /* navbardan uzaklaşsın */
+    margin-top: 3rem; /* ek boşluk */
+    position: relative;
+    z-index: 1; /* navbarın altında kalmaması için */
+}
+
+.container {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fdfeff; /* Çok hafif buz mavisi-beyaz */
+}
+
+/* Sayfa Başlığı */
+h2 {
+    color: #4a5568;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border-left: 5px solid #a3bffa; /* Pastel Mavi Detay */
+    padding-left: 15px;
+}
+
+/* Ürün Kartları - Soft Tasarım */
+.card {
+    border: none;
+    border-radius: 20px; /* Daha yuvarlak hatlar */
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(163, 191, 250, 0.1); /* Pastel mavi gölge */
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(163, 191, 250, 0.2);
+}
+
+/* Ürün Resmi Alanı */
+.card-body img {
+    border-radius: 15px;
+    background-color: #f0f4ff; /* Çok açık pastel mavi arka plan */
+    padding: 10px;
+    mix-blend-mode: multiply;
+}
+
+/* Miktar Seçici - Renkli ve Soft */
+.input-group {
+    background: #f8faff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 110px;
+}
+
+.input-group .btn {
+    background: #edf2ff;
+    color: #5a67d8; /* Indigo/Soft Mavi */
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.input-group .btn:hover {
+    background: #ebf1ff;
+    color: #434190;
+}
+
+.input-group .form-control {
+    border: none;
+    background: transparent !important;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+/* Fiyat Alanı */
+.text-primary {
+    color: #667eea !important; /* Soft Purple/Blue */
+}
+
+/* Sipariş Özeti (Sağ Kolon) */
+.summary-box {
+    background: linear-gradient(135deg, #ffffff 0%, #f7f9ff 100%);
+    border-radius: 25px;
+    border: 1px solid #eef2ff;
+    padding: 2rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+}
+
+/* Siparişi Tamamla Butonu - Renkli Geçiş (Gradient) */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Soft Gradient */
+    border: none;
+    border-radius: 15px;
+    padding: 14px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(118, 75, 162, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 12px 25px rgba(118, 75, 162, 0.3);
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+/* Sil Butonu */
+.btn-outline-danger {
+    border-radius: 10px;
+    border: 1px solid #fed7d7;
+    background-color: #fff5f5;
+    color: #e53e3e;
+}
+
+.btn-outline-danger:hover {
+    background-color: #feb2b2;
+    border-color: #feb2b2;
+    color: white;
+}
+
+/* Boş Sepet Görünümü */
+.text-center.py-5 {
+    background: #f8faff;
+    border-radius: 30px;
+    border: 2px dashed #e2e8f0;
+}

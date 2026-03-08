@@ -1,0 +1,108 @@
+<div class="sidebar-wrapper shadow-sm" [class.collapsed]="isCollapsed()">
+  <div class="sidebar-content d-flex flex-column h-100">
+
+    <div class="sidebar-header">
+      <div class="logo-container">
+        <i class="bi bi-intersect fs-4 text-primary"></i>
+        <span class="logo-text text-white">EC-Analytics</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav flex-grow-1">
+
+      @if (!user()) {
+        <div class="menu-section">
+          <small class="section-title">Hoş Geldiniz</small>
+          <a routerLink="/shop" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-shop"></i>
+            <span class="nav-text">Mağaza Gözat</span>
+          </a>
+          <a routerLink="/login" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span class="nav-text">Giriş Yap</span>
+          </a>
+        </div>
+      }
+
+      @if (user()?.role_type === 'INDIVIDUAL') {
+        <div class="menu-section">
+          <small class="section-title">Hesabım</small>
+          <a routerLink="/orders" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-bag-check-fill"></i>
+            <span class="nav-text">Siparişlerim</span>
+          </a>
+          <a routerLink="/cart" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-cart-fill"></i>
+            <span class="nav-text">Sepetim</span>
+          </a>
+          <a routerLink="/checkout" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-credit-card-fill"></i>
+            <span class="nav-text">Ödeme Yap</span>
+          </a>
+        </div>
+      }
+
+      @if (user()?.role_type === 'CORPORATE') {
+        <div class="menu-section">
+          <small class="section-title">Mağaza Yönetimi</small>
+          <a routerLink="/corporate/dashboard" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-graph-up-arrow"></i>
+            <span class="nav-text">Panel</span>
+          </a>
+          <a routerLink="/corporate/inventory" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-box-seam-fill"></i>
+            <span class="nav-text">Envanter</span>
+          </a>
+          <a routerLink="/corporate/orders" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-truck"></i>
+            <span class="nav-text">Siparişler</span>
+          </a>
+          <a routerLink="/corporate/reports" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-file-earmark-bar-graph"></i>
+            <span class="nav-text">Raporlar</span>
+          </a>
+        </div>
+      }
+
+      @if (user()?.role_type === 'ADMIN') {
+        <div class="menu-section">
+          <small class="section-title">Sistem Kontrol</small>
+          <a routerLink="/admin/dashboard" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-shield-lock-fill"></i>
+            <span class="nav-text">Genel Panel</span>
+          </a>
+          <a routerLink="/admin/users" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-people-fill"></i>
+            <span class="nav-text">Kullanıcılar</span>
+          </a>
+          <a routerLink="/admin/stores" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-shop-window"></i>
+            <span class="nav-text">Mağazalar</span>
+          </a>
+          <a routerLink="/admin/config" routerLinkActive="active" class="nav-item">
+            <i class="bi bi-gear-wide-connected"></i>
+            <span class="nav-text">Yapılandırma</span>
+          </a>
+        </div>
+      }
+
+      @if (user()) {
+        <div class="menu-section mt-auto">
+          <a routerLink="/ai-assistant" routerLinkActive="active" class="nav-item ai-link">
+            <i class="bi bi-stars"></i>
+            <span class="nav-text">AI Danışman</span>
+          </a>
+        </div>
+      }
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="toggle-control" (click)="toggleSidebar()">
+        <div class="toggle-icon-box">
+          <i class="bi" [ngClass]="isCollapsed() ? 'bi-chevron-right' : 'bi-arrow-left-short'"></i>
+        </div>
+        <span class="nav-text">Kapat</span>
+      </button>
+    </div>
+  </div>
+</div>

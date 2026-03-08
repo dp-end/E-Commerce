@@ -1,0 +1,173 @@
+<div class="main-content container">
+  <div class="row">
+    <div class="col-md-8">
+      <form
+        [formGroup]="checkoutFormGroup"
+        (ngSubmit)="onSubmit()"
+        novalidate
+      >
+        <h2>Checkout</h2>
+
+        <fieldset formGroupName="customer" class="mb-4">
+          <legend>Customer information</legend>
+          <div class="form-row">
+            <div class="form-group col">
+              <label>First name</label>
+              <input
+                class="form-control"
+                formControlName="firstName"
+                placeholder="Ad"
+              />
+            </div>
+            <div class="form-group col">
+              <label>Last name</label>
+              <input
+                class="form-control"
+                formControlName="lastName"
+                placeholder="Soyad"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              class="form-control"
+              formControlName="email"
+              placeholder="Email"
+            />
+          </div>
+        </fieldset>
+
+        <fieldset formGroupName="shippingAddress" class="mb-4">
+          <legend>Shipping address</legend>
+          <input
+            class="form-control mb-2"
+            formControlName="street"
+            placeholder="Sokak, apartman, daire…"
+          />
+          <div class="form-row">
+            <input
+              class="form-control col mr-2"
+              formControlName="city"
+              placeholder="Şehir"
+            />
+            <input
+              class="form-control col mr-2"
+              formControlName="state"
+              placeholder="İl"
+            />
+            <input
+              class="form-control col"
+              formControlName="zipCode"
+              placeholder="Posta Kodu"
+            />
+          </div>
+          <input
+            class="form-control mt-2"
+            formControlName="country"
+            placeholder="Ülke"
+          />
+        </fieldset>
+
+        <fieldset formGroupName="billingAddress" class="mb-4">
+          <legend>Billing address</legend>
+          <div class="form-check mb-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              formControlName="sameAsShipping"
+              id="sameAs"
+            />
+            <label class="form-check-label" for="sameAs"
+              >Same as shipping address</label
+            >
+          </div>
+          <div [class.d-none]="checkoutFormGroup.get('billingAddress.sameAsShipping')?.value">
+            <input
+              class="form-control mb-2"
+              formControlName="street"
+              placeholder="Sokak, apartman, daire…"
+            />
+            <div class="form-row">
+              <input
+                class="form-control col mr-2"
+                formControlName="city"
+                placeholder="Şehir"
+              />
+              <input
+                class="form-control col mr-2"
+                formControlName="state"
+                placeholder="İl"
+              />
+              <input
+                class="form-control col"
+                formControlName="zipCode"
+                placeholder="Posta Kodu"
+              />
+            </div>
+            <input
+              class="form-control mt-2"
+              formControlName="country"
+              placeholder="Ülke"
+            />
+          </div>
+        </fieldset>
+
+        <fieldset formGroupName="creditCard" class="mb-4">
+          <legend>Payment information</legend>
+          <input
+            class="form-control mb-2"
+            formControlName="cardType"
+            placeholder="Kart Türü (Visa/MasterCard…)"
+          />
+          <input
+            class="form-control mb-2"
+            formControlName="nameOnCard"
+            placeholder="Kart Üzerindeki İsim"
+          />
+          <input
+            class="form-control mb-2"
+            formControlName="cardNumber"
+            placeholder="Kart Numarası"
+          />
+          <div class="form-row">
+            <input
+              class="form-control col mr-2"
+              formControlName="securityCode"
+              placeholder="CVV"
+            />
+            <input
+              class="form-control col mr-2"
+              formControlName="expirationMonth"
+              placeholder="Son Kullanma Ayı"
+            />
+            <input
+              class="form-control col"
+              formControlName="expirationYear"
+              placeholder="Son Kullanma Yılı"
+            />
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary">
+          Complete purchase
+        </button>
+      </form>
+    </div>
+
+    <div class="col-md-4">
+      <div class="order-summary">
+        <h3>Order summary</h3>
+        <div *ngFor="let item of orderItems" class="d-flex justify-content-between">
+          <span>{{ item.quantity }}× {{ item.name }}</span>
+          <span>{{ item.price | currency }}</span>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-between font-weight-bold">
+          <span>Total</span>
+          <span>{{ orderTotal | currency }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

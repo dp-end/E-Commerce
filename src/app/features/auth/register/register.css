@@ -1,0 +1,88 @@
+.auth-container {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fdfeff;
+    padding: 20px;
+}
+
+.auth-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(163, 191, 250, 0.15);
+    width: 100%;
+    max-width: 550px; /* Login'den biraz daha geniş */
+    border: 1px solid #f0f4ff;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+    color: #4a5568;
+    font-weight: 800;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #667eea;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px 18px;
+    border: 2px solid #edf2ff;
+    border-radius: 15px;
+    outline: none;
+    transition: all 0.3s;
+    background: #f8faff;
+}
+
+input:focus {
+    border-color: #a3bffa;
+    background: white;
+}
+
+.btn-auth {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(118, 75, 162, 0.2);
+    transition: all 0.3s;
+}
+
+.btn-auth:disabled {
+    background: #cbd5e0;
+    box-shadow: none;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.auth-footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.is-invalid {
+    border-color: #feb2b2 !important;
+}

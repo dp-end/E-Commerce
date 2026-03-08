@@ -1,0 +1,91 @@
+@if (filteredOrders().length > 0) {
+    <div class="orders-list">
+      @for (order of filteredOrders(); track order.id) {
+        <div class="order-card" [class.expanded]="expandedOrderId() === order.id">
+          <div class="order-card-header" (click)="toggleOrderDetails(order.id)">
+            <div class="order-info">
+              <div class="order-number-date">
+                <h5 class="order-number">Sipariş #{{ order.id }}</h5>
+                <p class="order-date">{{ formatDate(order.date) }}</p>
+              </div>
+              <span [class]="'badge ' + getStatusClass(order.status)">
+                {{ getStatusText(order.status) }}
+              </span>
+            </div>
+            <div class="order-total">
+              <p class="total-label">Toplam Tutar</p>
+              <p class="total-amount">{{ order.grand_total | currency:'TRY' }}</p>
+            </div>
+            <div class="expand-icon">
+              <i class="bi" [class.bi-chevron-down]="expandedOrderId() !== order.id" [class.bi-chevron-up]="expandedOrderId() === order.id"></i>
+            </div>
+          </div>
+
+          @if (expandedOrderId() === order.id) {
+            <div class="order-card-body">
+              <div class="items-section">
+                <h6 class="items-title">Sipariş Detayları</h6>
+                <div class="items-list">
+                  @for (item of order.items; track item.id) {
+                    <div class="order-item">
+                      <div class="item-left">
+                        @if (getProduct(order, item.product_id); as product) {
+                          <img [src]="product.image_url || 'assets/no-image.png'"
+                               [alt]="product.name"
+                               class="item-image">
+                          <div class="item-details">
+                            <h6 class="item-name">{{ product.name }}</h6>
+                            <p class="item-category">{{ product.Category }}</p>
+                            <p class="item-price">{{ item.price | currency:'TRY' }} x {{ item.quantity }}</p>
+                          </div>
+                        }
+                      </div>
+                      <div class="item-subtotal">
+                        {{ item.price * item.quantity | currency:'TRY' }}
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <div class="order-summary">
+                <div class="summary-row">
+                  <span>Ara Toplam</span>
+                  <span>{{ calculateOrderTotal(order) | currency:'TRY' }}</span>
+                </div>
+                <div class="summary-row">
+                  <span>Kargo</span>
+                  <span class="text-success">Ücretsiz</span>
+                </div>
+                <div class="summary-row total-row">
+                  <span>Toplam</span>
+                  <span>{{ order.grand_total | currency:'TRY' }}</span>
+                </div>
+              </div>
+
+              <div class="order-actions">
+                <button class="btn btn-outline-primary btn-sm">
+                  <i class="bi bi-eye"></i> Sipariş Detaylarını Gör
+                </button>
+                <button class="btn btn-outline-secondary btn-sm">
+                  <i class="bi bi-arrow-repeat"></i> Tekrar Sipariş Ver
+                </button>
+                @if (order.status === 'DELIVERED') {
+                  <button class="btn btn-outline-warning btn-sm">
+                    <i class="bi bi-star"></i> Yorum Yap
+                  </button>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <i class="bi bi-inbox display-1 text-muted"></i>
+      <h3>Henüz sipariş yok</h3>
+      <p class="text-muted">Alışverişe başlayıp harika ürünler keşfedebilirsin.</p>
+      <a routerLink="/shop" class="btn btn-primary mt-3">Alışverişe Başla</a>
+    </div>
+  }

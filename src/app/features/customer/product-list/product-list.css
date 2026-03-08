@@ -1,0 +1,105 @@
+.catolog-container{
+  padding: 24px;
+  background-color: #0f111a;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+.header {
+  margin-bottom: 32px;
+
+  h2 {
+    font-size: 24px;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    color: #8b8d97;
+    margin: 0;
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  background-color: #1a1d27;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+&:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.product-info {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+  h3 {
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    color: #e2e8f0;
+  }
+}
+
+.price {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0;
+}
+
+.action-btn {
+  width: 100%;
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+  background-color: #4f46e5;
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.detail-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1; /* Butonların eşit genişlikte olması için */
+}
+
+.action-btn {
+  flex: 1; /* Butonların eşit genişlikte olması için */
+}
+
+.detail-btn:hover {
+  background-color: #5a6268;
+}

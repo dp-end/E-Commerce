@@ -1,0 +1,33 @@
+<div class="container">
+  @if (product()) {
+    <div class="product-detail-card">
+      <div class="image-container">
+        <img [src]="product()?.image_url" [alt]="product()?.name" />
+      </div>
+
+      <div class="info-container">
+        <h2>{{ product()?.name }}</h2>
+        <p class="sku">SKU: {{ product()?.sku }}</p>
+
+        <div class="price-section">
+          <span class="price">{{ product()?.price | currency:'USD' }}</span>
+        </div>
+
+        <p class="description">
+          Bu harika ürün şu anda stoklarımızda. Satıcı ID'si: {{ product()?.store_id }}
+        </p>
+
+        <div class="action-buttons">
+          <button class="btn-primary" (click)="addToCart()">Sepete Ekle</button>
+          <button class="btn-secondary" (click)="goBack()">Geri Dön</button>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="not-found">
+      <h2>Ürün Bulunamadı</h2>
+      <p>Aradığınız ürün mevcut değil veya kaldırılmış olabilir.</p>
+      <button class="btn-secondary" (click)="goBack()">Ürünlere Dön</button>
+    </div>
+  }
+</div>
