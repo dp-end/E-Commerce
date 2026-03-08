@@ -1,22 +1,28 @@
-.catolog-container{
-  padding: 24px;
-  background-color: #0f111a;
+/* src/app/features/customer/product-list/product-list.css */
+.catalog-container {
+  padding: 3rem 2rem;
+  background-color: #fdfeff; /* Soft genel arka plan */
   min-height: 100vh;
-  color: #ffffff;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 .header {
-  margin-bottom: 32px;
+  margin-bottom: 2.5rem;
+}
 
-  h2 {
-    font-size: 24px;
-    margin: 0 0 8px 0;
-  }
+.header h2 {
+  color: #4a5568;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  border-left: 5px solid #a3bffa; /* Pastel mavi başlık detayı */
+  padding-left: 15px;
+}
 
-  p {
-    color: #8b8d97;
-    margin: 0;
-  }
+.header p {
+  color: #718096;
+  margin: 0 0 0 20px;
+  font-size: 1.1rem;
 }
 
 .product-grid {
@@ -25,81 +31,107 @@
   gap: 24px;
 }
 
+/* Ürün Kartları - Soft Tasarım */
 .product-card {
-  background-color: #1a1d27;
-  border-radius: 12px;
+  background-color: #ffffff;
+  border-radius: 20px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #eef2ff;
+  box-shadow: 0 10px 25px rgba(163, 191, 250, 0.1);
+  transition: all 0.3s ease;
 }
 
-&:hover {
+.product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(163, 191, 250, 0.2);
 }
 
 .product-icon {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  background: #f0f4ff; /* İkon arkası pastel kutu */
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
 }
 
 .product-info {
   text-align: center;
   width: 100%;
   margin-bottom: 20px;
+}
 
-  h3 {
-    font-size: 16px;
-    margin: 0 0 8px 0;
-    color: #e2e8f0;
-  }
+.product-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #4a5568;
 }
 
 .price {
-  color: #10b981;
-  font-weight: 600;
-  font-size: 18px;
+  color: #667eea;
+  font-weight: 700;
+  font-size: 20px;
   margin: 0;
-}
-
-.action-btn {
-  width: 100%;
-  background-color: #6366f1;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-
-  &:hover {
-  background-color: #4f46e5;
-  }
 }
 
 .button-group {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 12px;
+  width: 100%;
+  margin-top: auto;
 }
 
+/* Detaylar Butonu (Soft İkincil Buton) */
 .detail-btn {
-  background-color: #6c757d;
-  color: white;
+  background-color: #edf2ff;
+  color: #5a67d8;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  padding: 12px;
+  border-radius: 12px;
   cursor: pointer;
-  flex: 1; /* Butonların eşit genişlikte olması için */
-}
-
-.action-btn {
-  flex: 1; /* Butonların eşit genişlikte olması için */
+  flex: 1;
+  font-weight: 600;
+  transition: all 0.2s;
 }
 
 .detail-btn:hover {
-  background-color: #5a6268;
+  background-color: #e2e8f0;
+  color: #434190;
+}
+
+/* Sepete Ekle Butonu (Ana Gradient Buton) */
+.action-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(118, 75, 162, 0.2);
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(118, 75, 162, 0.3);
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background: #f8faff;
+  border-radius: 20px;
+  border: 2px dashed #e2e8f0;
+  color: #718096;
+  font-size: 1.1rem;
 }

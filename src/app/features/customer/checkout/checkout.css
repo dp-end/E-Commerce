@@ -1,117 +1,173 @@
+/* Ana Konteyner ve Font */
 .main-content {
-  padding: 2rem 0;
+  padding: 5rem 0 2rem 0; /* Navbardan uzaklaşması için cart.css'e uyumlu yapıldı */
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-fieldset {
-  border: 2px solid #17a2b8;          /* primary renkli sınır */
-  padding: 1.5rem;
-  border-radius: 6px;
-  background: #f1fafd;                /* hafif mavi arka plan */
-  position: relative;
-}
-
-legend {
-  font-size: 1.3rem;
+/* Sayfa Başlığı */
+h2 {
+  color: #4a5568;
   font-weight: 700;
-  color: #17a2b8;
+  margin-bottom: 2rem;
+  border-left: 5px solid #a3bffa;
+  padding-left: 15px;
+}
+
+/* Form Grupları (Fieldset) - Soft Tasarım (cart.css'teki .card yapısına benzer) */
+fieldset {
+  border: none;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(163, 191, 250, 0.1);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+fieldset:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(163, 191, 250, 0.2);
+}
+
+/* Form Başlıkları (Legend) */
+legend {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #667eea; /* Soft Indigo/Blue */
   width: auto;
-  padding: 0 0.75rem;
-  background: #f1fafd;
+  padding: 0;
+  margin-bottom: 1rem;
+  background: transparent;
 }
 
+/* Form Etiketleri (Label) */
 label {
-  font-weight: 500;
-  color: #343a40;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
 }
 
+/* Input Alanları - Renkli ve Soft */
 .form-control {
-  transition: border-color .2s, box-shadow .2s;
-  border-radius: 4px;
+  background: #f8faff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 15px;
+  color: #4a5568;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
 }
 
 .form-control::placeholder {
-  color: #6c757d;
+  color: #a0aec0;
   opacity: 1;
 }
 
 .form-control:focus {
-  border-color: #28a745;                      /* success renk */
-  box-shadow: 0 0 0 .2rem rgba(40,167,69,.25);
+  background: #ffffff;
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+  outline: none;
 }
 
+/* Hatalı Input Durumu (Angular form validasyonu için) */
 .form-control.ng-invalid.ng-touched {
-  border-color: #dc3545;
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 0.2rem rgba(229, 62, 62, 0.25);
 }
 
+/* Checkbox */
 .form-check {
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .form-check-input {
-  margin-top: .25rem;
+  margin-top: 0.3rem;
+  cursor: pointer;
 }
 
+/* Sipariş Özeti (Sağ Kolon) - cart.css'teki .summary-box ile aynı tasarım */
 .order-summary {
-  background: #ffffff;
-  border: 2px solid #17a2b8;
-  border-radius: 6px;
-  padding: 1.25rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  background: linear-gradient(135deg, #ffffff 0%, #f7f9ff 100%);
+  border-radius: 25px;
+  border: 1px solid #eef2ff;
+  padding: 2rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 100px; /* Ekran kaydırılırken özetin sabit kalması için eklendi */
 }
 
 .order-summary h3 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-weight: 700;
-  color: #17a2b8;
+  color: #4a5568;
 }
 
 .order-summary .d-flex {
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
+  color: #4a5568;
+  font-weight: 500;
 }
 
 .order-summary .d-flex span:last-child {
   min-width: 5rem;
   text-align: right;
-  color: #343a40;
+  font-weight: 600;
 }
 
 .order-summary hr {
-  margin: 1rem 0;
-  border-color: #dee2e6;
+  margin: 1.5rem 0;
+  border-color: #e2e8f0;
+}
+
+/* Toplam Fiyat Alanı */
+.order-summary .font-weight-bold {
+  font-size: 1.1rem;
 }
 
 .order-summary .font-weight-bold span:last-child {
-  font-size: 1.1rem;
-  color: #28a745;
+  font-size: 1.25rem;
+  color: #667eea; /* Soft Gradient ana rengi */
+  font-weight: 700;
 }
 
+/* Satın Almayı Tamamla Butonu - Renkli Geçiş (Gradient) */
 button[type="submit"] {
   width: 100%;
-  background: #28a745;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
   color: #fff;
-  font-size: 1rem;
-  padding: .75rem;
-  border-radius: 4px;
-  transition: background .2s;
+  font-size: 1.1rem;
+  padding: 14px;
+  border-radius: 15px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(118, 75, 162, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
 }
 
 button[type="submit"]:hover,
 button[type="submit"]:focus {
-  background: #218838;
+  box-shadow: 0 12px 25px rgba(118, 75, 162, 0.3);
+  transform: translateY(-2px); /* Tıklanma hissi / hover efekti */
+  outline: none;
 }
 
 button[type="submit"]:active {
-  background: #1e7e34;
+  transform: translateY(0);
 }
 
 .mb-4 {
   margin-bottom: 1.5rem !important;
 }
 
+/* Mobil Uyumluluk */
 @media (max-width: 767px) {
   .order-summary {
     margin-top: 2rem;
+    position: static;
   }
 }
